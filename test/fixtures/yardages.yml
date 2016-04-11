@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  black: 1
+  blue: 1
+  white: 1
+  red: 1
+  gold: 1
+  hole_id: 1
+
+two:
+  black: 1
+  blue: 1
+  white: 1
+  red: 1
+  gold: 1
+  hole_id: 1

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  yardage_id: 1
+  par: 1
+
+two:
+  name: MyString
+  yardage_id: 1
+  par: 1
