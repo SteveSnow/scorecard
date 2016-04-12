@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411153106) do
+ActiveRecord::Schema.define(version: 20160411230716) do
 
   create_table "holes", force: :cascade do |t|
     t.string   "name"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 20160411153106) do
   add_index "members", ["email"], name: "index_members_on_email", unique: true
   add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
 
+  create_table "rounds", force: :cascade do |t|
+    t.integer  "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "track"
+  end
+
   create_table "scores", force: :cascade do |t|
     t.integer  "strokes"
     t.integer  "hole_id"
@@ -51,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160411153106) do
     t.boolean  "gir"
     t.boolean  "fairway"
     t.integer  "putts"
+    t.integer  "round_id"
   end
 
   create_table "yardages", force: :cascade do |t|
