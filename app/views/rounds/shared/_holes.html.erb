@@ -1,0 +1,5 @@
+<%@round.scores.each do |r|  %>
+<div class='hole-button'>
+  <%= link_to r.hole.name, rounds_get_score_path(score:{id:r.id}), remote: true, method: :get %>
+</div>
+<% end %>

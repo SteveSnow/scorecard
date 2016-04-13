@@ -1,0 +1,47 @@
+@import "colors";
+
+@mixin black-border {
+  border: black 1px solid;
+}
+
+#member-info{
+  @include black-border;
+}
+
+#complete-rounds{
+  @include black-border;
+}
+
+#in-progress-rounds{
+  @include black-border;
+}
+
+#hole-stage{
+  text-align: center;
+  width: 4em;
+  .hole-button{
+    @include black-border;
+    &:hover{
+      background-color: $light-blue
+    }
+  }
+}
+
+@media (min-width: 600px){
+  #rounds-stage{
+    display: flex;
+    justify-content: space-around;
+  }
+  #hole-stage{
+    width: 100%;
+    display: flex;
+    // justify-content: space-between;
+    flex-wrap: wrap;
+    .hole-button{
+       width: 10%;
+       height: 10%;
+       margin: 1em;
+      background-color: $dark-blue;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+<h1>Completed Rounds:</h1>
+
+<% @completed_rounds.each do |r| %>
+<%= format_date(r.created_at) %>:
+  <%= r.score %><br>
+<% end %>

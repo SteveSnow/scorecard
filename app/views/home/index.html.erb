@@ -1,6 +1,22 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
 <% if not current_member %>
   <%= link_to "Sign Up",  new_member_registration_path, class: "btn btn-primary" %>
   <%= link_to "Sign In",   new_member_session_path, class: "btn btn-primary" %>
+<% end %>
+
+<% if current_member %>
+<div id="member-info">
+<h3><%= current_member.fname %></h3>
+</div>
+<div id="rounds-stage">
+  <div id="in-progress-rounds">
+    <%= render 'rounds/in_progress'  %>
+  </div>
+  <div id="complete-rounds">
+    <%= render 'rounds/complete'  %>
+  </div>
+</div>
+
+<div class="test">
+  <%= link_to "New Round",new_round_path%>
+</div>
 <% end %>

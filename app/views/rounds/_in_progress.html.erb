@@ -1,0 +1,5 @@
+<h1>In Progress Rounds:</h1>
+<% @incomplete_rounds.each do |r| %>
+<%= format_date(r.created_at) %><br>
+The next hole is:  <%= r.next_hole_id %><br>
+<% end %>
