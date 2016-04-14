@@ -2,5 +2,6 @@
 
 <% @completed_rounds.each do |r| %>
 <%= format_date(r.created_at) %>:
-  <%= r.score %><br>
+  <%= r.score %>
+    <%= link_to "Show Round",round_path(:id=>r.id)%><br>
 <% end %>

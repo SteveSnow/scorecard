@@ -31,7 +31,9 @@ class Round < ActiveRecord::Base
   def score
     score=0
     self.scores.each do |s|
+      if s.strokes
         score+=s.strokes
+      end
     end
     score
   end

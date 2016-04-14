@@ -9,14 +9,11 @@
 </div>
 <div id="rounds-stage">
   <div id="in-progress-rounds">
-    <%= render 'rounds/in_progress'  %>
+    <%= render 'rounds/shared/in_progress'  %>
   </div>
   <div id="complete-rounds">
-    <%= render 'rounds/complete'  %>
+    <%= render 'rounds/shared/complete'  %>
   </div>
 </div>
 
-<div class="test">
-  <%= link_to "New Round",new_round_path%>
-</div>
 <% end %>

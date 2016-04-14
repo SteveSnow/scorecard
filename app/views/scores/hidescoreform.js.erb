@@ -1,0 +1,5 @@
+$(document).ready(function() {
+  $('#round-info').html("<%= j(render(partial: '/rounds/shared/info')) %>")
+    $('#hole-stage').html("<%= j(render(partial: '/rounds/shared/holes')) %>")
+  $('#score-container').hide()
+})
