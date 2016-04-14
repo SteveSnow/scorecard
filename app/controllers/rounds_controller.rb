@@ -3,9 +3,12 @@ class RoundsController < ApplicationController
   @round=Round.first
   end
 
+  def show
+    @round=Round.find(params[:id])
+  end
+
 #Methods to handle nested scores within the rounds
   def get_score
-    # binding.pry
   @score=Score.find(score_params[:id])
   render 'rounds/newscore'
   end
