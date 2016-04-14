@@ -1,8 +1,8 @@
 <% if @score %>
-<%= @score.hole.name %> <br>
-<%= @score.strokes %> <br>
+
   <%= form_tag rounds_update_score_path(score:{id:@score.id}), remote: :true do %>
-  <%= text_field_tag :strokes %>
-  <%= submit_tag "send"%>
+    <%= text_field_tag :strokes, @score.strokes %>
+    <%= check_box_tag :greens,@score.gir,false%>
+    <%= submit_tag "send"%>
   <% end %>
   <% end %>

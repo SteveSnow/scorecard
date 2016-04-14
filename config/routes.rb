@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get 'home/index'
   post '/test' => 'home#test'
 
-  resources :rounds, only: [:show, :new, :create,:destroy]
+  resources :rounds, only: [:show, :new, :create,:destroy] do
+    resources :score
+  end
 
   devise_for :members
 
