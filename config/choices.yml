@@ -6,3 +6,10 @@ track:
   - br
   - rw
   - wbr
+
+tee:
+  - black
+  - blue
+  - white
+  - red
+  - gold

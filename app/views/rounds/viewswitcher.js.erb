@@ -1,0 +1,9 @@
+$(document).ready(function() {
+
+  if ("<%= j(@view) %>"=='card') {
+    $('#show-container').html("<%= j(render(partial: '/rounds/show/cardview')) %>")
+  }
+  if ("<%= j(@view) %>"=='score') {
+    $('#show-container').html("<%= j(render(partial: '/rounds/show/scoreview')) %>")
+  }
+})

@@ -1,7 +1,8 @@
-<div id="hole-stage">
-  <%= render "rounds/shared/holes" %>
-</div>
-
-<div id="score-container">
-
+<div id="new-round-container">
+    <%= form_for Round.new do |f| %>
+    <%= f.hidden_field :member_id, :value => current_member.id %>
+    <%= f.collection_select :track,Choices['track'],:to_s,:to_s %>
+    <%= f.collection_select :tee,Choices['tee'],:to_s,:to_s %>
+    <%= f.submit %>
+    <% end %>
 </div>

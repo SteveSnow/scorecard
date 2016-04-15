@@ -1,10 +1,5 @@
-<div id="round-info">
-    <%= render "rounds/shared/info" %>
-</div>
-<div id="hole-stage">
-  <%= render "rounds/shared/holes" %>
-</div>
-
-<div id="score-container">
-
+<%= link_to "Score View",rounds_changeview_path(:id=>@round.id,:view=>'score'),remote:true%>
+<%= link_to "Card View",rounds_changeview_path(:id=>@round.id,:view=>'card'),remote:true%>
+<div id="show-container">
+    <%= render "rounds/show/scoreview" %>
 </div>
