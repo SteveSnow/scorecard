@@ -1,9 +1,10 @@
 <% if @score %>
 
 <%= form_for @score, :url => round_score_path(@score.round_id,@score.id),remote:true do |f| %>
-  <%= f.text_field :strokes, class: "form-control" %>
+  <%= f.collection_select :strokes,0..10,:to_s,:to_s %>
   <%= f.check_box :gir %>
   <%= f.check_box :fairway %>
+  <%= f.collection_select :putts,0..4,:to_s,:to_s %>
   <%= f.submit %>
 <% end %>
 <% end %>

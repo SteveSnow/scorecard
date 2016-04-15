@@ -2,6 +2,7 @@ class Round < ActiveRecord::Base
   belongs_to :member
   has_many :scores
   validates_inclusion_of :track, in: Choices['track']
+  validates_inclusion_of :tee, in: Choices['tee']
   after_create :add_scores
 
   def number_of_holes
@@ -16,6 +17,16 @@ class Round < ActiveRecord::Base
       end
     end
     unplayed
+  end
+
+  def yardage
+    yards=0
+    self.scores.each do |s|
+      if s.hole.yardage[self.tee]
+        yards+=s.hole.yardage[self.tee]
+      end
+    end
+    yards
   end
 
   def holes_played
@@ -78,7 +89,12 @@ class Round < ActiveRecord::Base
     if !self.is_complete?
       self.scores.each do |s|
         if !s.strokes
-        return  s.hole.id
+          if s.hole.id > 18
+            hole_id=s.hole_id-18
+          else
+            hole_id=s.hole_id
+          end
+        return hole_id
         end
       end
     end

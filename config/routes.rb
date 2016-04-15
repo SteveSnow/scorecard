@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'rounds/get_score'=>'rounds#get_score'
   get 'home/index'
   post '/test' => 'home#test'
+  get 'rounds/changeview' => 'rounds#change_view'
 
   resources :rounds, only: [:show, :new, :create,:destroy] do
     resources :scores
