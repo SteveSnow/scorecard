@@ -1,14 +1,14 @@
 <h1>Matches#show</h1>
 <p>Find me in app/views/matches/show.html.erb</p>
-<%= @match.rounds.count %>
-<%= @match.id %>
 
-<div id="invites-list">
-  
-</div>
 
-<%= form_for @match.invites.new,:url => match_invites_path(@match.id),remote:true do |f| %>
 
-  <%= f.submit %>
-
+<% if current_member.id==@match.scorer_id %>
+  <div id="invites-list">
+    <%= render "invites/all" %>
+  </div>
+  <%= form_for @match.invites.new,:url => match_invites_path(@match.id),remote:true do |f| %>
+    <%= f.collection_select :member_id,@members,:id,:fname %>
+    <%= f.submit %>
+  <% end %>
 <% end %>

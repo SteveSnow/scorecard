@@ -6,11 +6,11 @@
 <% if current_member %>
 <%= link_to "New Round",   new_round_path, class: "btn btn-primary",remote:true %>
 <%= link_to "New Match",   new_match_path, class: "btn btn-primary"%>
-<div id="new-round">
-
-</div>
 <div id="member-info">
 <h3><%= current_member.fname %></h3>
+</div>
+<div id="new-round">
+
 </div>
 <div id="rounds-stage">
   <div id="in-progress-rounds">
@@ -20,13 +20,22 @@
     <%= render 'rounds/shared/complete'  %>
   </div>
 </div>
-
+<h1>Current Matches</h1>
 <div class="member-matches">
   <% current_member.matches.each do |m| %>
-    <%= link_to "Show Match",   match_path(m.id), class: "btn btn-primary"%><br>
     <% m.members.each do |mem| %>
-      <%= mem.fname %><br>
+    <%= mem.fname %>
     <% end %>
+    <%= link_to "Show Match",   match_path(m.id), class: "btn btn-primary"%><br>
+
+  <% end %>
+</div>
+<h1>Invites</h1>
+<div class="member-invites">
+  <% current_member.invites.each do |i| %>
+    <%= Member.find(i.match.scorer_id).fname %>
+    <%= link_to "Accept", match_invite_path(i.match.id,i.id),
+          :method => :patch %>
 
   <% end %>
 </div>

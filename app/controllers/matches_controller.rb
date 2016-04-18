@@ -13,6 +13,13 @@ class MatchesController < ApplicationController
 
   def show
     @match=Match.find(params[:id])
+    @members=[]
+    Member.all.each do |m|
+      if current_member.id != m.id
+        @members.push(m)
+      end
+    end
+
   end
 
   private
