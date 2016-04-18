@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  private: false
+  scorer_id: 1
+  track: MyString
+
+two:
+  private: false
+  scorer_id: 1
+  track: MyString

@@ -1,0 +1,7 @@
+<h1>Matches#new</h1>
+<p>Find me in app/views/matches/new.html.erb</p>
+
+<%= form_for Match.new do |f| %>
+<%= f.collection_select :track,Choices['track'],:to_s,:to_s %>
+  <%= f.submit %>
+<% end %>

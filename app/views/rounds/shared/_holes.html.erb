@@ -1,9 +1,9 @@
 <%@round.scores.each do |r|  %>
 <div class='hole-button'>
   <% if r.strokes %>
-    <%= link_to hole_name(r.hole.name), rounds_get_score_path(score:{id:r.id}), remote: true, method: :get %>
+    <%= link_to hole_name(r.hole.name), round_score_path(:round_id=>@round.id,:id=>r.id), remote: true%>
   <% else %>
-  <%= link_to hole_name(r.hole.name), rounds_get_score_path(score:{id:r.id}), remote: true, method: :get, class:'missing-strokes-btn' %>
+    <%= link_to hole_name(r.hole.name), round_score_path(:round_id=>@round.id,:id=>r.id),class:'missing-strokes-btn', remote: true%>
   <% end %>
 </div>
 <% end %>

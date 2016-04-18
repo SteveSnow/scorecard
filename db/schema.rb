@@ -11,12 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414205243) do
+ActiveRecord::Schema.define(version: 20160418183039) do
 
   create_table "holes", force: :cascade do |t|
     t.string   "name"
     t.integer  "yardage_id"
     t.integer  "par"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "invites", force: :cascade do |t|
+    t.boolean  "accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "member_id"
+    t.integer  "match_id"
+  end
+
+  create_table "match_invites", force: :cascade do |t|
+    t.integer  "match_id"
+    t.integer  "invite_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.boolean  "private"
+    t.integer  "scorer_id"
+    t.string   "track"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "member_matches", force: :cascade do |t|
+    t.integer  "member_id"
+    t.integer  "match_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160414205243) do
     t.datetime "updated_at", null: false
     t.string   "track"
     t.string   "tee"
+    t.integer  "match_id"
   end
 
   create_table "scores", force: :cascade do |t|

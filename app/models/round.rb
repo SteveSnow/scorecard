@@ -1,8 +1,9 @@
 class Round < ActiveRecord::Base
   belongs_to :member
+  belongs_to :match
   has_many :scores
-  validates_inclusion_of :track, in: Choices['track']
-  validates_inclusion_of :tee, in: Choices['tee']
+  # validates_inclusion_of :track, in: Choices['track']
+  # validates_inclusion_of :tee, in: Choices['tee']
   after_create :add_scores
 
   def number_of_holes

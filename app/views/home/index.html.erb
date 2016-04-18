@@ -4,6 +4,11 @@
 <% end %>
 
 <% if current_member %>
+<%= link_to "New Round",   new_round_path, class: "btn btn-primary",remote:true %>
+<%= link_to "New Match",   new_match_path, class: "btn btn-primary"%>
+<div id="new-round">
+
+</div>
 <div id="member-info">
 <h3><%= current_member.fname %></h3>
 </div>
@@ -16,5 +21,14 @@
   </div>
 </div>
 
-<%= link_to "New Round",   new_round_path, class: "btn btn-primary" %>
+<div class="member-matches">
+  <% current_member.matches.each do |m| %>
+    <%= link_to "Show Match",   match_path(m.id), class: "btn btn-primary"%><br>
+    <% m.members.each do |mem| %>
+      <%= mem.fname %><br>
+    <% end %>
+
+  <% end %>
+</div>
+
 <% end %>

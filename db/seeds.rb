@@ -63,6 +63,8 @@ Yardage.create(hole_id:27,black:500,blue:400,white:300,red:200,gold:100)
 case Rails.env
 when "development"
   member = Member.create! :fname => 'Steve', :lname => 'Snow',:email => 'steven.snow@outlook.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+  member2 = Member.create! :fname => 'Bill', :lname => 'Snow',:email => 'bill@email.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+
 
   wb_par_round=Round.create(track:'wb',member_id:member.id,tee:'blue')
   wb_par_round.scores.each do |s|

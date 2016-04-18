@@ -11,22 +11,10 @@ class RoundsController < ApplicationController
     redirect_to round_path :id=>r.id
   end
 
-
-  def get_score
-    @score=Score.find(score_params[:id])
-    render 'rounds/newscore'
-  end
-
-  def update_score
-    @score=Score.find(score_params[:id])
-    @score.update(strokes:  update_score_params[:strokes])
-    render 'rounds/hidescore'
-  end
-
   def change_view
     @view=params[:view]
     @round=Round.find(params[:id])
-    render 'rounds/viewswitcher'
+    render 'rounds/js/viewswitcher'
   end
 
   def complete

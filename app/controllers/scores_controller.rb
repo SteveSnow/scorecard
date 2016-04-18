@@ -1,29 +1,23 @@
 class ScoresController < ApplicationController
   def create
-    binding.pry
   end
 
   def new
-    binding.pry
   end
 
   def edit
-    binding.pry
   end
 
   def show
-    binding.pry
-  end
-
-  def update
-    binding.pry
+    @score=Score.find(params[:id])
+    render 'rounds/js/newscore'
   end
 
   def update
     score=Score.find(params[:id])
     score.update_attributes(update_score_params)
     @round=Round.find(score.round_id)
-    render 'scores/hidescoreform'
+    render 'rounds/js/hidescoreform'
   end
 
   def destroy

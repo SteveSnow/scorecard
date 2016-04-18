@@ -6,7 +6,10 @@ class Member < ActiveRecord::Base
 
   has_many :scores
   has_many :rounds
-
+  has_many :member_matches
+  has_many :matches, :through=> :member_matches
+  has_many :invites
+  
   def completed_rounds
     completed_rounds=[]
     self.rounds.each do |r|
