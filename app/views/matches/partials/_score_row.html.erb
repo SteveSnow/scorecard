@@ -1,0 +1,16 @@
+
+<div class="lb-row">
+  <div class="info-container">
+    <div class="lb-data-label member">
+      <%= @round.member.fname %>
+    </div>
+    <% @round.scores.each do |s|%>
+      <div class="lb-data">
+        <%= s.strokes %>
+      </div>
+    <% end %>
+    <div class="lb-data-label member">
+      <%= @round.score %>
+    </div>
+  </div>
+</div>

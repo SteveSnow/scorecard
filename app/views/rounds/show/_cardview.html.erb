@@ -1,3 +1,7 @@
-<% @round.scores.each do |s|%>
-  <%= s.strokes %>
+
+
+<%= div_for @round,class: 'card-container' do%>
+<%= render 'rounds/show/card' %>
+<%= div_for @round,:score,class: 'score-form' do%>
+<% end %>
 <% end %>

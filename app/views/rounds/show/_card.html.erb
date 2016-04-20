@@ -1,0 +1,52 @@
+<div class="label-container">
+
+    <div id='hole-container' class="card-label">
+        Hole
+    </div>
+    <div id='par-container' class="card-label">
+        Par
+    </div>
+    <div class="card-label">
+        <%= @round.member.fname %>
+    </div>
+</div>
+<% @round.scores.each do |s|%>
+<div class="score-wrapper">
+    <div class="hole-container">
+        <%= s.hole.name%>
+    </div>
+    <div class="par-container">
+        <%= s.hole.par%>
+    </div>
+    <div class="score-container <%= 'bogey' if s.is_bogey? %> <%= 'double-bogey' if s.is_double_bogey? or s.is_other? %> <%= 'birdie' if s.is_birdie? %> <%= 'eagle' if s.is_eagle? or  s.is_albatros?%>">
+
+        <% if s.strokes %>
+        <%= link_to round_score_path(:round_id=>@round.id,:id=>s.id), remote: true do %>
+        <div class="score-border">
+            <%= s.strokes %>
+        </div>
+        <% end %>
+    <% else %>
+        <%= link_to  round_score_path(:round_id=>@round.id,:id=>s.id), remote: true do%>
+        <div class="score-border">
+            +
+        </div>
+        <% end %>
+        <% end %>
+
+    </div>
+</div>
+
+<% end %>
+<div class="label-container">
+
+    <div class="space-container card-label">
+        Totals
+    </div>
+    <div class="card-label">
+        <%= @round.par %>
+    </div>
+    <div class="card-label">
+        <%= @round.score %>
+    </div>
+</div>

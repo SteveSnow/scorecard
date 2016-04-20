@@ -1,0 +1,29 @@
+<div class='lb-row'>
+
+<% round=@match.rounds.first %>
+
+<div class="info-container">
+  <div class="lb-data-label hole">
+    Hole
+  </div>
+  <% round.scores.each do |s|%>
+    <div class="lb-data hole">
+      <%= s.hole.name %>
+    </div>
+  <% end %>
+</div>
+
+<div class="info-container">
+  <div class="lb-data-label par">
+    Par
+  </div>
+  <% round.scores.each do |s|%>
+    <div class="lb-data par">
+      <%= s.hole.par %>
+    </div>
+  <% end %>
+  <div class="lb-data-label par">
+    <%= round.par %>
+  </div>
+</div>
+</div>

@@ -1,0 +1,75 @@
+@import "colors";
+@mixin black-border {
+    border: 1px black solid;
+}
+@mixin container {
+    padding: 0.5em;
+    @include black-border;
+    background-color: $pale-red;
+}
+.card-container {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    .label-container {
+        height: 100%;
+        .card-label {
+            @include container;
+            background-color: $pale-blue;
+            clear: both;
+        }
+        #hole-container{background-color: $pale-green;}
+        #par-container{background-color: $pale-red;}
+    }
+    .score-wrapper {
+        clear: both;
+        .hole-container {
+            @include container;
+            background-color: $pale-green;
+        }
+        .par-container {
+            @include container;
+            height: 1em;
+        }
+        .score-container {
+            padding: 0.5em;
+            @include black-border;
+            width: 2em;
+            height: 1.5em;
+            .score-border {
+                text-align: center;
+            }
+            a {
+                text-decoration: none;
+            }
+            &:hover {
+                background-color: $pale-blue;
+            }
+        }
+    }
+}
+.bogey {
+    .score-border {
+        @include black-border;
+    }
+}
+.double-bogey {
+    .score-border {
+        border: 4px double black;
+        border-style: double;
+    }
+}
+.birdie {
+    .score-border {
+        @include black-border;
+        border-radius: 50%;
+    }
+}
+.eagle {
+    .score-border {
+        @include black-border;
+        background-color: $div;
+        color: white;
+        border-radius: 50%;
+    }
+}

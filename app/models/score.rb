@@ -28,7 +28,9 @@ class Score < ActiveRecord::Base
   end
 
   def is_other?
-      self.strokes>self.hole.par+1
+    if self.strokes
+      self.strokes>self.hole.par+2
+    end
   end
 
   def offset

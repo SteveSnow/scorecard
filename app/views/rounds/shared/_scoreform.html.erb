@@ -1,10 +1,45 @@
 <% if @score %>
-
+<div class="score-form">
 <%= form_for @score, :url => round_score_path(@score.round_id,@score.id),remote:true do |f| %>
-  <%= f.collection_select :strokes,0..10,:to_s,:to_s %>
-  <%= f.check_box :gir %>
-  <%= f.check_box :fairway %>
-  <%= f.collection_select :putts,0..4,:to_s,:to_s %>
-  <%= f.submit %>
+<table class="score-table">
+  <tr>
+    <td>
+      <%= f.label 'Strokes' %>
+    </td>
+    <td>
+      <%= f.collection_select :strokes,1..10,:to_s,:to_s %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label 'GIR?' %>
+    </td>
+    <td>
+      <%= f.check_box :gir %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label 'Fairway?' %>
+    </td>
+    <td>
+      <%= f.check_box :fairway %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label 'Putts' %>
+    </td>
+    <td>
+      <%= f.collection_select :putts,0..4,:to_s,:to_s %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= f.submit %>
+    </td>
+  </tr>
+</table>
 <% end %>
+</div></div>
 <% end %>

@@ -1,5 +1,3 @@
-<%= link_to "Score View",rounds_changeview_path(:id=>@round.id,:view=>'score'),remote:true%>
-<%= link_to "Card View",rounds_changeview_path(:id=>@round.id,:view=>'card'),remote:true%>
 <div id="show-container">
-    <%= render "rounds/show/scoreview" %>
+    <%= render "rounds/show/cardview" %>
 </div>

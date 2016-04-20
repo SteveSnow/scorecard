@@ -1,7 +1,5 @@
-<h1>Matches#show</h1>
-<p>Find me in app/views/matches/show.html.erb</p>
-
-
+<br>
+<%= render "matches/partials/leaderboard" %><br>
 
 <% if current_member.id==@match.scorer_id %>
   <div id="invites-list">
@@ -11,4 +9,11 @@
     <%= f.collection_select :member_id,@members,:id,:fname %>
     <%= f.submit %>
   <% end %>
+<% end %>
+
+<% @match.rounds.each do |r| %>
+  <% @round=r %>
+  <div class="card-view">
+    <%= render 'rounds/show/cardview' %><br>
+  </div>
 <% end %>

@@ -1,3 +1,33 @@
-// Place all the styles related to the matches controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "colors";
+
+@mixin box {
+  width: 1em;
+  padding: 1em;
+  text-align: center;
+  border: 1px black solid;
+}
+.lb-row{
+  .lb-data{
+    @include box;
+  }
+
+  .lb-data-label{
+    @include box;
+    width: 2em;
+  }
+
+  .info-container{
+    display: flex;
+  }
+
+  .par{
+    background-color: $pale-red
+  }
+
+  .hole{
+    background-color: $pale-green;
+  }
+  .member{
+    background-color: $pale-blue;
+  }
+}
