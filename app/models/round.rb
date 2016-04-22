@@ -108,7 +108,7 @@ class Round < ActiveRecord::Base
           return s
       end
     end
-    return nils
+    return nil
   end
 
 private

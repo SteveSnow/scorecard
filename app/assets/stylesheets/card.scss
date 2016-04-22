@@ -7,10 +7,16 @@
     @include black-border;
     background-color: $pale-red;
 }
+.card-view{
+  display: flex;
+}
 .card-container {
     display: flex;
     text-align: center;
     flex-wrap: wrap;
+    .score-form{
+      clear: left;
+    }
     .label-container {
         height: 100%;
         .card-label {
@@ -38,6 +44,7 @@
             height: 1.5em;
             .score-border {
                 text-align: center;
+                margin: 4px;
             }
             a {
                 text-decoration: none;

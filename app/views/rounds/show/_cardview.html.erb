@@ -1,7 +1,9 @@
 
+<div class="card-view">
 
 <%= div_for @round,class: 'card-container' do%>
 <%= render 'rounds/show/card' %>
+<% end %>
 <%= div_for @round,:score,class: 'score-form' do%>
 <% end %>
-<% end %>
+</div>

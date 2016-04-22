@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418183039) do
+ActiveRecord::Schema.define(version: 20160421183151) do
 
   create_table "holes", force: :cascade do |t|
     t.string   "name"
@@ -40,8 +40,9 @@ ActiveRecord::Schema.define(version: 20160418183039) do
     t.boolean  "private"
     t.integer  "scorer_id"
     t.string   "track"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "current_hole"
   end
 
   create_table "member_matches", force: :cascade do |t|

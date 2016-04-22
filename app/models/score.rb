@@ -12,7 +12,9 @@ class Score < ActiveRecord::Base
   end
 
   def is_eagle?
-      self.strokes==self.hole.par-2
+    if self.strokes
+      self.strokes<=self.hole.par-2
+    end
   end
 
   def is_albatros?

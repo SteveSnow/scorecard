@@ -13,11 +13,6 @@
        <% if member_signed_in? %>
    <%= link_to 'Log Out', destroy_member_session_path, method: :delete%>
     <%= link_to 'Home', home_index_path%>
-
-<% if params[:controller]=='home' %>
-  <%= link_to 'Reload', home_index_path, remote: :true%>
-
-<% end %>
  <% end %>
 <%= yield %>
 

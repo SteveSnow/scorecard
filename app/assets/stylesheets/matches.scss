@@ -1,23 +1,38 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "colors";
-
+@import "card";
 @mixin box {
-  width: 1em;
-  padding: 1em;
+  width: 50px;
+  height: auto;
   text-align: center;
   border: 1px black solid;
 }
 .lb-row{
   .lb-data{
     @include box;
+.score-border{
+
+  margin: 4px;
+}
+    span{
+      vertical-align: middle;
+    }
   }
 
   .lb-data-label{
     @include box;
-    width: 2em;
+    width:70px;
+    align-items: center;
+    word-wrap: normal;
+    span{
+      vertical-align: middle;
+    }
   }
 
   .info-container{
     display: flex;
+    width: auto;
   }
 
   .par{
@@ -30,4 +45,27 @@
   .member{
     background-color: $pale-blue;
   }
+}
+#leaderboard{
+  display: none;
+}
+
+.match-entry-form{
+  width: 10em;
+    input{
+      margin: auto;
+    }
+    h4{
+      margin: 0;
+    }
+  #arrow-container{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 600px){
+#leaderboard{
+  display: block;
+}
 }

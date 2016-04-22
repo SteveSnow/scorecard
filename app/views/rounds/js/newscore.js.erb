@@ -1,6 +1,8 @@
 $(document).ready(function() {
-  $('.score-form').show()
+
+  $('.score-form').show()  
   id='#round_'+<%= j(params[:round_id]) %>
-  $(id + '> .score-form').html("<%= j(render(partial: '/rounds/shared/scoreform')) %>")
+$(id).parent().children('.score-form').html("<%= j(render(partial: '/rounds/shared/scoreform')) %>")
+
 
 })

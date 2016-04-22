@@ -1,7 +1,8 @@
-$(document).ready(function() {
+
   $('#round-info').html("<%= j(render(partial: '/rounds/shared/info')) %>")
   $('#hole-stage').html("<%= j(render(partial: '/rounds/shared/holes')) %>")
+
   id='#score_round_'+<%= j(params[:round_id]) %>
-  $(id).parent('.card-container').html("<%= j(render(partial: '/rounds/show/cardview')) %>")
+  $(id).parent().children('.card-container').html("<%= j(render(partial: '/rounds/show/cardview')) %>")
   $('.score-form').hide()
-})
+  // $(.get).('/matches')

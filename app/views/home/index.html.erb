@@ -30,8 +30,8 @@
 
   <% end %>
 </div>
-<h1>Invites</h1>
 <div class="member-invites">
+  <h1>Invites</h1>
   <% current_member.invites.each do |i| %>
     <%= Member.find(i.match.scorer_id).fname %>
     <%= link_to "Accept", match_invite_path(i.match.id,i.id),

@@ -1,6 +1,6 @@
 <%= render 'matches/partials/round_info_row' %>
 
-<% @match.rounds.each do |r| %>
+<% @match.standing.each do |r| %>
   <% @round=r %>
   <%= render 'matches/partials/score_row' %>
 <% end %>

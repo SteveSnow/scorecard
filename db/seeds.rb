@@ -64,11 +64,26 @@ case Rails.env
 when "development"
   member = Member.create! :fname => 'Steve', :lname => 'Snow',:email => 'steven.snow@outlook.com', :password => 'topsecret', :password_confirmation => 'topsecret'
   member2 = Member.create! :fname => 'Bill', :lname => 'Snow',:email => 'bill@email.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+  member3 = Member.create! :fname => 'Ryan', :lname => 'Snow',:email => 'ryan@email.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+  member4 = Member.create! :fname => 'Dave', :lname => 'Snow',:email => 'dave@email.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+  match=Match.create!(:track=>'wb')
+  match.members.append(member,member2,member3,member4)
 
-
-  wb_par_round=Round.create(track:'wb',member_id:member.id,tee:'blue')
+  wb_par_round=Round.create(track:'wb',member_id:member.id,tee:'blue',match_id:match.id)
   wb_par_round.scores.each do |s|
       s.update(strokes:s.hole.par,member_id:member.id)
+  end
+  wb_par_round=Round.create(track:'wb',member_id:member2.id,tee:'blue',match_id:match.id)
+  wb_par_round.scores.each do |s|
+      s.update(strokes:s.hole.par,member_id:member2.id)
+  end
+  wb_par_round=Round.create(track:'wb',member_id:member3.id,tee:'blue',match_id:match.id)
+  wb_par_round.scores.each do |s|
+      s.update(strokes:s.hole.par,member_id:member3.id)
+  end
+  wb_par_round=Round.create(track:'wb',member_id:member4.id,tee:'blue',match_id:match.id)
+  wb_par_round.scores.each do |s|
+      s.update(strokes:s.hole.par,member_id:member4.id)
   end
 
   br_par_round=Round.create(track:'br',member_id:member.id,tee:'black')

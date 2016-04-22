@@ -1,0 +1,52 @@
+<h2>Change Hole:</h2>
+<%= form_for @match,remote:true do |f| %>
+<%= f.collection_select :current_hole,1..@match.rounds.first.scores.count,:to_s,:to_s %>
+<%= f.submit 'Change Hole' %><br><br>
+<% end %>
+<h2>Enter Scores:</h2>
+<%= form_tag match_update_multiple_scores_path(@match.id), method: :post, class: "navbar-form navbar-left search-form",remote:true do %>
+<table>
+  <tr>
+    <td >
+    <h4>Hole:</h4>
+    </td>
+    <td>
+      <%= @match.current_hole %>
+    </td>
+  </tr>
+  <tr>
+    <td >
+    <h4>Par:</h4>
+    </td>
+    <td>
+      <%= @match.rounds.first.scores.where(:hole_id=>@match.current_hole).first.hole.par %>
+    </td>
+  </tr>
+  <% for round in @match.rounds %>
+  <%= hidden_field_tag "ids[]", round.scores.where(:hole_id=>@match.current_hole).first.id %>
+<tr>
+  <td>
+    <%= label_tag round.member.fname %>
+  </td>
+  <td>
+      <%= text_field_tag "strokes[]", round.scores.where(:hole_id=>@match.current_hole).first.strokes %>
+  </td>
+</tr>
+  <% end %>
+  <tr>
+
+    <td colspan="2">
+      <div id='arrow-container'>
+        <%= link_to  match_previous_hole_path(@match.id),remote:true do%>
+        <i class="fa fa-arrow-left fa-3x" ></i>
+        <% end %>
+        <%= submit_tag "Post Scores" %>
+        <%= link_to  match_next_hole_path(@match.id),remote:true do %>
+        <i class="fa fa-arrow-right fa-3x" ></i>
+        <% end %>
+      </div>
+
+    </td>
+  </tr>
+</table>
+<% end %>
